@@ -8,6 +8,9 @@
 # Before doing anything else, load the packages you need for this assignment:
 # `tidyverse` and `nycflights13`
 
+library(tidyverse)
+library(nycflights13)
+
 # Q1. The `nycflights13` package includes a dataframe called `planes` that
 # contains data for each airplane such as manufacturer, model, etc.
 #
@@ -16,11 +19,15 @@
 #
 # HINT: the `tailnum` column uniquely identifies each airplane.
 
+answer_1 <- left_join(flights, planes, by = "tailnum")
+
 # Q2. Use answer_1 to count the number of flights made by each manufacturer,
 # then sort the results so the manufacturer with the most flights is at the top.
 # Save the result as answer_2
 #
 # HINT: use `count()`
+
+answer_2 <- count(answer_1, manufacturer)
 
 # Q3. Does every flight in the `flights` dataframe have a corresponding
 # airplane in `planes`?
