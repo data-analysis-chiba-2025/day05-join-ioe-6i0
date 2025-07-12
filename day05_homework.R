@@ -1,6 +1,6 @@
 # DAY 5 HOMEWORK
 #
-# Name:
+# Name Ai Oe
 
 # NOTE: In the text below, backticks ``
 # are used to indicate code. For example, `library(tidyverse)`
