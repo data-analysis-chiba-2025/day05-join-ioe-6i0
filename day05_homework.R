@@ -33,6 +33,8 @@ answer_2 <- count(answer_1, manufacturer)
 # airplane in `planes`?
 #
 # Save your answer as a logical vector (either TRUE or FALSE) to answer_3
+answer_3 <- all(flights$tailnum %in% planes$tailnum)
+
 
 # Q4. The `nycflights13` package includes a dataframe called `airlines` that
 # includes the name of each airline and its corresponding carrier code.
@@ -40,6 +42,7 @@ answer_2 <- count(answer_1, manufacturer)
 #
 # Join the `airlines` dataframe to the `flights` dataframe, keeping all rows in
 # `flights`. Save the result as answer_4
+answer_4 <- left_join(flights,airlines, by ="carrier")
 
 # Q5. Use answer_4 to find the average arrival delay for each airline.
 # Exclude missing values from your calculation.
@@ -50,4 +53,7 @@ answer_2 <- count(answer_1, manufacturer)
 #
 # HINT: when you use functions like `mean()`, `max()`, or `min()`, use the
 # option `na.rm = TRUE` to exclude missing values from the calculation
-
+answer_5 <- summarize(
+  group_by(answer_4,name),
+  avg_arr_delay = mean(arr_delay, na.rm = TRUE)
+)
